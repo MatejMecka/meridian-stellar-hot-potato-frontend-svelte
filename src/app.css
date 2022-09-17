@@ -15,6 +15,20 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mdc-theme-surface: #212125;
+  }
+
+  .mdc-dialog__title {
+    color: rgba(255, 255, 255, 0.87) !important; 
+  }
+
+  .mdc-dialog__content {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
+
 a {
   font-weight: 500;
   color: #646cff;

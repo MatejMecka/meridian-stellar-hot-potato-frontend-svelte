@@ -31,6 +31,12 @@
 
                 const ledger_date = new Date(trade["ledger_close_time"]);
                 loading = false
+
+                // Init
+                hours = 24
+                minutes = 0
+                seconds = 0
+
                 setInterval(() => {
                   const time_diff = new Date().getTime() - ledger_date.getTime();
                   const remaining_time = 8.64e7 - time_diff; // 24 hours in milliseconds
