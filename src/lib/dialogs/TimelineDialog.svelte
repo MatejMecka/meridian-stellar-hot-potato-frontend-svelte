@@ -1,9 +1,9 @@
 <script lang="ts">
     import Dialog, { Title, Content, Actions } from '@smui/dialog';
     import Button, { Label } from '@smui/button';
+    import Timeline from '../components/Timeline.svelte';
 
     export let open = false
-    export let publicKey = ""
 </script>
 
 <Dialog
@@ -12,11 +12,11 @@
   escapeKeyAction=""
   aria-labelledby="mandatory-title"
   aria-describedby="mandatory-content"
-  class="dialog_card"
+  fullscreen
 >
-  <Title id="mandatory-title">You do not own a 🥔!</Title>
+  <Title id="mandatory-title">Timeline</Title>
   <Content id="mandatory-content">
-    You do not own a Hot Potato. Make sure you're using the correct public key. The provided public key was {publicKey}
+    <Timeline></Timeline>
   </Content>
   <Actions>
     <Button on:click={() => (open = false)}>
@@ -24,4 +24,4 @@
     </Button>
   </Actions>
 </Dialog>
-
+ 

@@ -1,14 +1,15 @@
 <script lang=ts>
     import Button, {Icon, Label} from '@smui/button';
     import IconButton from '@smui/icon-button';
+    import CopyButton from '../components/CopyButton.svelte';
 
     export let xdr
     let snackbar_message;
 
     let shareData = {
         "title": "Hot Potato | Accept my Potato!",
-        "text": "",
-        "url": ""
+        "text": "I'm sending you a potato to claim!",
+        "url": `${window.location}`
     }
 
     async function share() {
@@ -24,19 +25,12 @@
 
 <h4>You can allow Hot Potato to handle the collection of signatures. All you need to do is share the unique generated URL to the receiver, for them to redeem the potato</h4>
 
-<Button
-  on:click={() => {}}
-  variant="unelevated"
-  class="button-shaped-round"
->
-  <Icon class="material-icons">content_copy</Icon>
-  <Label>Copy to Clipboard</Label>
-</Button>
+<CopyButton bind:xdr={xdr}></CopyButton>
 
 {#if navigator.canShare}
 
 <Button
-  on:click={() => {}}
+  on:click={share}
   variant="unelevated"
   class="button-shaped-round"
 >

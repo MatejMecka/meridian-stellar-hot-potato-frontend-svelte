@@ -4,8 +4,8 @@
     import Card, { Content } from '@smui/card';
 
     const ISSUER = import.meta.env.VITE_ISSUER
-    const HORIZON_URL = import.meta.env.VITE_HORIZON_URL
     const ASSET_CODE = import.meta.env.VITE_ASSET_CODE
+    const HORIZON_URL = import.meta.env.VITE_HORIZON_URL
 
     let holder = undefined
     let loading = true

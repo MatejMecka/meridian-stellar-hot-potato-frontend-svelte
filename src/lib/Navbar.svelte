@@ -1,6 +1,7 @@
 <script lang="ts">
     import LayoutGrid, { Cell } from '@smui/layout-grid';
     import Button, { Label, Icon } from '@smui/button';
+    import TimelineDialog from './dialogs/TimelineDialog.svelte';
     const SIMPLE_SIGNER_URL = import.meta.env.VITE_SIMPLE_SIGNER_URL
 
     const login = (async () => {
@@ -10,6 +11,11 @@
             'width=360, height=450',
         );
     })
+
+    let open_timeline = false
+    const openTimeline = function(){
+        open_timeline = true
+    }
 </script>
 
 <nav>
@@ -18,7 +24,7 @@
             <h1>🥔 | Stellar Hot Potato</h1>
         </Cell>
         <Cell span={6} align="top">
-            <Button variant="unelevated" class="button-shaped-round">
+            <Button variant="unelevated" class="button-shaped-round" on:click={openTimeline}>
                 <Icon class="material-icons">view_timeline</Icon>
                 <Label>Timeline</Label>
             </Button>
@@ -34,8 +40,12 @@
     </LayoutGrid>
 </nav>
 
+<TimelineDialog bind:open={open_timeline}></TimelineDialog>
+
 <style>
     h1 {
         text-align: left;
+        line-height: 0%;
+        overflow-wrap: break-word;
     }
 </style>

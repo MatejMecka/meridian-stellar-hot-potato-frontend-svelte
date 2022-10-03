@@ -7,13 +7,14 @@
     import TabBar from '@smui/tab-bar';
     import CircularProgress from '@smui/circular-progress';
     import SimpleTransaction from '../transaction_panels/SimpleTransaction.svelte';
-import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelte';
+    import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelte';
 
    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
    const SIMPLE_SIGNER_URL = import.meta.env.VITE_SIMPLE_SIGNER_URL
 
     export let open = false
     export let holder = ""
+    export let signedXDR = ""
     let destination = ""
     let regex = new RegExp('G[A-Z-0-9]{54}');
 
@@ -28,10 +29,15 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
         }
     ]
 
-    let active = tabs[0]
+    let active = undefined
     let xdr = undefined
+    let xdr_to_send = undefined
 
     async function fetchXDR(){
+        if(holder == "" || destination == ""){
+            return
+        }
+
         const response = await fetch(`${BACKEND_URL}/exchange`, {
             method: 'POST',
             body: JSON.stringify({
@@ -44,6 +50,7 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
         })
         const data = await response.json()
         xdr = data['xdr']
+        pickXDR()
         return data
     }
 
@@ -63,6 +70,19 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
         );
     })
 
+    const pickXDR = function () {
+        console.log("EXECUTED")
+        console.log(xdr)
+        console.log(signedXDR)
+        if (signedXDR == ""){
+            xdr_to_send = xdr
+        } else {
+            xdr_to_send = signedXDR
+        }
+        console.log(xdr_to_send)
+    }
+
+
 </script>
 
 <Dialog
@@ -72,11 +92,13 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
   aria-labelledby="mandatory-title"
   aria-describedby="mandatory-content"
   class="dialog_card"
+  fullscreen
 >
   <Title id="mandatory-title">Woohooo! You're in a posession of a 🥔</Title>
   <Content id="mandatory-content">
     <b>Step 1. Obtain a Destination Address</b><br>
-    In order to pass the potato, you firstly need someone to accept it. Ask the recepient for their stellar wallet's public key and fill it here
+    In order to pass the potato, you firstly need someone to accept it. Ask the recepient for their stellar wallet's public key and fill it here:
+    <br>
     <Textfield bind:value={destination} label="Destination" on:input={handle_promise} required pattern="G[A-Z-0-9]{54}">
         <Icon class="material-icons" slot="trailingIcon">person</Icon>
       </Textfield>
@@ -101,8 +123,15 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
             <Icon class="material-icons">password</Icon>
             <Label>Sign Transaction</Label>
             </Button>
+
+        {#if signedXDR != ""}
+        <br><br>
+            {void pickXDR() ?? ""}
+            <b style="color:green">Transaction signed succesfully!</b>
+        {/if}
+
         {:else if data['detail'] != undefined}
-            <b>{data['detail']}</b>
+            <b style="color:red">{data['detail']}</b>
         {/if}
 
         {:catch error}
@@ -120,11 +149,11 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
             </TabBar>
             
             {#if active == tabs[0]}
-                <SimpleTransaction bind:xdr={xdr}></SimpleTransaction>
+                <SimpleTransaction bind:xdr={xdr_to_send}></SimpleTransaction>
             {/if}
 
             {#if active == tabs[1]}
-                <AdvancedTransaction bind:xdr={xdr}></AdvancedTransaction>
+                <AdvancedTransaction bind:xdr={xdr_to_send}></AdvancedTransaction>
             {/if}
 
         {/if}
@@ -134,7 +163,7 @@ import AdvancedTransaction from '../transaction_panels/AdvancedTransaction.svelt
 </Content>
   <Actions>
     <Button on:click={() => (open = false)}>
-      <Label>Ok</Label>
+      <Label>Cancel</Label>
     </Button>
   </Actions>
 </Dialog>
