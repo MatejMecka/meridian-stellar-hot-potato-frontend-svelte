@@ -1,6 +1,4 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import Counter from './lib/Counter.svelte'
   import Index from './pages/index.svelte'
 </script>
 
@@ -20,8 +18,19 @@
   href="https://fonts.googleapis.com/css?family=Roboto+Mono"
 />
 
-<link rel="stylesheet" href="node_modules/svelte-material-ui/bare.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/svelte-material-ui@6.0.0/bare.min.css"
+/>
 
 <meta name="viewport" content="width=device-width">
+
+
+<meta property="og:title" content="Stellar Hot Potato">
+<meta property="og:site_name" content="Stellar Hot Potato">
+<meta property="og:url" content="https://stellarhotpotato.tk">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://stellarhotpotato.tk/assets/logo.png">
 
 <Index></Index>
