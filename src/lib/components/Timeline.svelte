@@ -57,7 +57,7 @@
                 <p>Passed on: {new Date(option.ts * 1000)}</p>
 			</TimelineContent>
             <TimelineOppositeContent slot="opposite-content">
-				<p>{new Date(option.ts * 1000)}</p>
+				<p>{formatTimeAgo(new Date(option.ts * 1000))}</p>
 			</TimelineOppositeContent>
 		</TimelineItem>
 	{/each}
