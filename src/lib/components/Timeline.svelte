@@ -54,9 +54,10 @@
 			</TimelineSeparator>
 			<TimelineContent>
 				<h6>{option.buyer}</h6>
+                <p>Passed on: {new Date(option.ts * 1000)}</p>
 			</TimelineContent>
             <TimelineOppositeContent slot="opposite-content">
-				<p>[PLACEHOLDER DATE]</p>
+				<p>{new Date(option.ts * 1000)}</p>
 			</TimelineOppositeContent>
 		</TimelineItem>
 	{/each}
