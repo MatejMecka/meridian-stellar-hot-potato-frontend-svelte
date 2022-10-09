@@ -25,12 +25,14 @@
 
 <meta name="viewport" content="width=device-width">
 
-
+<title>Stellar Hot Potato</title>
 <meta property="og:title" content="Stellar Hot Potato">
 <meta property="og:site_name" content="Stellar Hot Potato">
 <meta property="og:url" content="https://stellarhotpotato.tk">
 <meta property="og:description" content="">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://stellarhotpotato.tk/assets/logo.png">
+<meta property="og:image" content="https://stellarhotpotato.tk/logo.png">
+<meta name="description" content="Stellar Hot Potato is a fun game that involves passing a potato with the Stellar Blockchain">
+<link rel='icon' type='image/png' href='/logo.png'>
 
 <Index></Index>
