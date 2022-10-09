@@ -12,6 +12,10 @@
         );
     })
 
+    const open_medium = (async () => {
+        window.open("https://medium.com/stellar-community/hot-potato-having-fun-on-the-stellar-blockchain-63a5038fedc", '_blank').focus();
+    })
+
     let open_timeline = false
     const openTimeline = function(){
         open_timeline = true
@@ -28,7 +32,7 @@
                 <Icon class="material-icons">view_timeline</Icon>
                 <Label>Timeline</Label>
             </Button>
-            <Button variant="unelevated" class="button-shaped-round">
+            <Button variant="unelevated" class="button-shaped-round" on:click={openTimeline}>
                 <Icon class="material-icons">school</Icon>
                 <Label>Learn</Label>
             </Button>
