@@ -32,7 +32,7 @@
                 <Icon class="material-icons">view_timeline</Icon>
                 <Label>Timeline</Label>
             </Button>
-            <Button variant="unelevated" class="button-shaped-round" on:click={openTimeline}>
+            <Button variant="unelevated" class="button-shaped-round" on:click={open_medium}>
                 <Icon class="material-icons">school</Icon>
                 <Label>Learn</Label>
             </Button>
