@@ -1,10 +1,17 @@
 <script lang="ts">
     import Button, {Icon, Label} from '@smui/button';
     export let xdr = ""
+    export let shortened_url = undefined
     let copied = false 
 
     const copy = function() {
-        const url = `${window.location}?xdr=${xdr}`
+        let url;
+        console.log(shortened_url)
+        if(shortened_url != undefined){
+          url = shortened_url
+        } else {
+          url = `${window.location}?xdr=${xdr}`
+        }
         // Copy the text inside the text field
         navigator.clipboard.writeText(url);
         copied = true
