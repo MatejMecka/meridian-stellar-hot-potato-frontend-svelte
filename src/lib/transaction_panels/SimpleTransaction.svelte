@@ -2,6 +2,7 @@
     import Button, {Icon, Label} from '@smui/button';
     import IconButton from '@smui/icon-button';
     import CopyButton from '../components/CopyButton.svelte';
+    import QRCode from '../components/QRJS.svelte';
 
     export let xdr
     let snackbar_message;
@@ -39,3 +40,6 @@
 </Button>
 
 {/if}
+
+<h6>QR Code:</h6>
+<QRCode codeValue={window.location} squareSize=200/>
