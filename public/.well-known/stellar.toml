@@ -1,6 +1,7 @@
 NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
 SIGNING_KEY="GAY2VEWUCDXEJT5E5FMMLIDCE3CXQQYVWSMY7CDYPFEDAYEDOWVKZTKD"
 
+
 [DOCUMENTATION]
 ORG_NAME="Nesho LLC"
 ORG_URL="https://stellarhotpotato.tk"
@@ -176,3 +177,17 @@ display_decimals=2
 desc="Hot Potato is a Social Game for Stellar Enthusiasts"
 image="https://ipfs.io/ipfs/bafybeibmpqnt557thepze2lk23xawwgc5m453uxx6k6enam532w56pqr7y/Maribor.png"
 
+
+[[CURRENCIES]]
+code="PotatoZON3G"
+issuer="GAKUNJ4CR542CU42FKR6WY5HFK5UNSWYQRIK5YXEXIANAVGGWTH7ZHV4"
+display_decimals=2
+desc="Hot Potato is a Social Game for Stellar Enthusiasts"
+image="https://ipfs.io/ipfs/bafybeifdzumfayvsdgc5azuulwbo63cwgkqn4layqtz2pntqvgwguwq4re/bali_dalle.png"
+
+[[CURRENCIES]]
+code="PotatoXXXXXXX"
+issuer="GAKUNJ4CR542CU42FKR6WY5HFK5UNSWYQRIK5YXEXIANAVGGWTH7ZHV4"
+display_decimals=2
+desc="Hot Potato is a Social Game for Stellar Enthusiasts"
+image="https://ipfs.io/ipfs/bafybeid2fqzby5pwo2nsfwzm2l544cui7a577ybcnlzlbgdsyu3xayzi2i/iceland.png"
