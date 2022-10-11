@@ -1,6 +1,16 @@
 <script lang="ts">
     export let xdr
     export let text="send"
+    export let copied = false
+
+    import Button, {Icon, Label} from '@smui/button';
+
+    const copy = function() {
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(xdr);
+        copied = true
+    }
+
 </script>
 
 {#if text == "send"}
@@ -12,3 +22,17 @@
 
 <h6>The following tools are available at your disposal:</h6>
 <li>Stellar Laboratory</li>
+
+<Button
+  on:click={() => copy()}
+  variant="unelevated"
+  class="button-shaped-round"
+>
+  <Icon class="material-icons">content_copy</Icon>
+  <Label>Copy to Clipboard</Label>
+</Button>
+
+{#if copied}
+    <br><br>
+    <b style="color:green">Copied to Clipboard!</b>
+{/if}
