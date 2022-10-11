@@ -10,7 +10,7 @@
         if(shortened_url != undefined){
           url = shortened_url
         } else {
-          url = `${window.location}?xdr=${xdr}`
+          url = `${window.location}?xdr=${xdr.replace(' ', '+').replace('%20', '+')}`
         }
         // Copy the text inside the text field
         navigator.clipboard.writeText(url);
