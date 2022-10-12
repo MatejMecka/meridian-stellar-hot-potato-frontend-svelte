@@ -25,7 +25,7 @@
     }
 
     const shortenUrl = async function (long_url) {
-        return fetch(`https://api.shrtco.de/v2/shorten?url=${long_url}`)
+        return fetch(`https://api.shrtco.de/v2/shorten?url=${long_url.replace(' ', '+').replace('%20', '+')}`)
             .then((res) => res.json())
             .then((data) => {
             console.log(data);
