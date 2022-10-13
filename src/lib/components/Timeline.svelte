@@ -57,7 +57,7 @@
                 <p>Passed on: {new Date(option.ts * 1000)}</p>
 			</TimelineContent>
             <TimelineOppositeContent slot="opposite-content">
-				<p>{formatTimeAgo(new Date(option.ts * 1000)).replace('in', '').replace('tomorow', '1 day ') + ' ago'}</p>
+				<p>{formatTimeAgo(new Date(option.ts * 1000)).replace('in', '').replace('tomorrow', '1 day ') + ' ago'}</p>
 			</TimelineOppositeContent>
 		</TimelineItem>
 	{/each}
